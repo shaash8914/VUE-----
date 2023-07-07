@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>vue購物車</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC&family=Roboto&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <div id="app">
+      <div class="product">
+        <div
+          class="product_item"
+          v-for="(item,index) in itemList"
+          key="item.id"
+        >
+          <div class="item_detail">
+            <img :src="item.imgUrl" />
+          </div>
+
+          <div class="title">{{item.itemName}}</div>
+          <div class="count">
+            <button @click="reduceCount(item)">-</button>
+            {{item.count}}
+            <button @click="addCount(item)">+</button>
+          </div>
+          <div class="price">💎{{item.price * item.count}}</div>
+          <div @click="Delete(index)" class="operate">
+            <button>刪除</button>
+          </div>
+        </div>
+        <div class="product_total">
+          <div class="total">👛總計：{{ totalPrice }}元</div>
+        </div>
+      </div>
+    </div>
+    <script src="https://unpkg.com/vue@3"></script>
+    <script>
+      Vue.createApp({
+        data() {
+          return {
+            itemList: [
+              {
+                id: "1",
+                itemName: "୧༼ ヘ ᗜ ヘ ༽ ୨淡草莓粉紫水晶手鍊",
+                imgUrl: "./pic_1.jpg",
+                price: "800",
+                count: 1,
+              },
+              {
+                id: "2",
+                itemName: " | •́ ▾ •̀ | 紅耀黃水晶手鍊",
+                imgUrl: "./pic_2.jpg",
+                price: "700",
+                count: 1,
+              },
+              {
+                id: "3",
+                itemName: " (ఠ్ఠ ˓̭ ఠ్ఠ) 銀耀石藍紫水晶手鍊",
+                imgUrl: "./pic_3.jpg",
+                price: "600",
+                count: 1,
+              },
+              {
+                id: "4",
+                itemName: "ʘ‿ʘ 白色四季綠幽靈手鍊",
+                imgUrl: "./pic_4.jpg",
+                price: "500",
+                count: 1,
+              },
+            ],
+          };
+        },
+        computed: {
+          totalPrice() {
+            return this.itemList.reduce(
+              (total, item) => total + item.price * item.count,
+              0
+            );
+          },
+        },
+        methods: {
+          addCount(item) {
+            item.count += 1;
+          },
+          reduceCount(item) {
+            if (item.count > 1) {
+              item.count -= 1;
+            }
+          },
+          Delete(index) {
+            this.itemList.splice(index, 1);
+          },
+        },
+      }).mount("#app");
+    </script>
+  </body>
+</html>

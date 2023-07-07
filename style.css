@@ -1,0 +1,104 @@
+* {
+  font-family: "Noto Sans TC", sans-serif;
+  margin: 0;
+  padding: 0;
+  outline: none;
+}
+
+body {
+  background-color: rgba(255, 139, 139, 0.2);
+}
+
+.product {
+  background-color: #fff;
+  padding: 50px 50px;
+  width: 100%;
+  max-width: 1200px;
+  margin: auto;
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.15);
+  border-radius: 8px;
+  margin-top: 50px;
+}
+
+.product_item {
+  max-width: 800px;
+  margin: auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: row;
+  padding: 50px 0;
+  border-bottom: 2px dashed #c0c0c0;
+}
+
+.item_detail {
+  display: flex;
+  flex-direction: column;
+}
+
+.item_detail img {
+  object-fit: cover;
+  display: block;
+  width: 188px;
+  height: 250px;
+  border-radius: 10px;
+}
+
+.title {
+  padding: 20px 0;
+  color: #2d2d2d;
+}
+
+.price {
+  font-size: 1rem;
+  letter-spacing: 1.5px;
+  color: #2d2d2d;
+}
+
+.count button {
+  text-decoration: none;
+  padding: 12px 20px;
+  color: #323232;
+  border: none;
+  border-radius: 50px;
+  background: #ffffff;
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.15);
+  font-size: 16px;
+  cursor: pointer;
+  transition: all 0.25s ease-in-out;
+}
+
+.count button:hover {
+  background: #ff8e8e;
+}
+
+.operate button {
+  text-decoration: none;
+  padding: 8px 15px;
+  color: #ffffff;
+  border: none;
+  border-radius: 50px;
+  background: #ff5c5c;
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.15);
+  font-size: 14px;
+  cursor: pointer;
+  margin-left: 20px;
+  transition: all 0.25s ease-in-out;
+}
+
+.operate button:hover {
+  background: #ffffff;
+  color: #ff5c5c;
+}
+
+.product_total {
+  max-width: 800px;
+  margin: auto;
+  display: flex;
+  justify-content: end;
+}
+
+.total {
+  padding: 10px 10px;
+  font-size: 1.3rem;
+}
